@@ -1,15 +1,17 @@
+
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { Poppins } from "next/font/google";
+import Image from 'next/image';
+import ThemeProvider from "../providers/theme";
+import RecoilTheme from "../providers/recoil";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import "./globals.scss";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+
+const poppins = Poppins({
   subsets: ["latin"],
+  variable: "--font-poppins",
+  weight: ["300", "600"],
 });
 
 export const metadata: Metadata = {
@@ -25,9 +27,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${poppins.variable} antialiased`}
       >
-        {children}
+        <RecoilTheme>
+          <ThemeProvider>
+            <header className="pt-2.5 pb-5">
+              <Image
+                src="/friendkit-bold.svg" // Path to your image, can be local or remote
+                alt="App logo"
+                width={ 20 }
+                height={ 20 }
+              />
+            </header>
+
+            <main className="flex">
+              { children }
+            </main>
+
+          </ThemeProvider>
+        </RecoilTheme>
       </body>
     </html>
   );

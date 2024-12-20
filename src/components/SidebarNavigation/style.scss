@@ -1,0 +1,27 @@
+nav {
+  border-right: 1px solid var(--border-color);
+  background: var(--nav-bg);
+
+  img {
+    border: 1px solid var(--border-color);
+  }
+
+  ul {
+    li a {
+      text-decoration: none;
+      color: #212121;
+      white-space: nowrap;
+    }
+
+    li:not(.active) a:hover {
+      background: #f8fafc;
+      color: #000;
+    }
+
+    span {
+      display: inline-block;
+      width: 87px;
+      font-weight: bold;
+    }
+  }
+}
