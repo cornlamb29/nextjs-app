@@ -7,11 +7,11 @@ import { getAllUsers } from "../data";
 export default function UserList(): React.ReactElement {
   const users = getAllUsers();
 
-  return (<div className="bg-slate-50 flex-wrap flex p-6">
+  return (<div className="flex-wrap flex p-6">
     {users.map((user) => (
-      <div
-        className="basis-1/5 m-3 border p-2.5 rounded rounded-2xl border-gray-300 bg-white cursor-pointer"
-      >
+      // using arbitary variant `[html.light]` to change background color
+      // https://github.com/tailwindlabs/tailwindcss/discussions/7282
+      <div className="basis-1/5 m-3 border p-2.5 rounded rounded-2xl border-gray-300 [html.ligth&]:bg-white cursor-pointer">
         <div className="relative w-72 h-72">
           <Link href={ `/users/${user.user_id}` }>
             <Image
